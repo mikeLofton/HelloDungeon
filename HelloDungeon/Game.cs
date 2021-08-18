@@ -113,6 +113,21 @@ namespace HelloDungeon
 
             }
 
+            //Second Event
+            Console.WriteLine("Upon entering the tower the door slams shut behind you. You are in a " +
+                "hallway with seven doors. Three to your left, three to your right, and one directly " +
+                "in front of you. The Devil's voice enters your mind. \n");
+            Console.WriteLine("The Devil: Choose the correct path or the fires of hell shall consume you!" +
+                "You have three attempts. \n");
+            Console.WriteLine("A message is engraved on your weapon... 7 dead," +
+                "6 fallen, 5 burning, 4 changed, 3 free, 2 hated, 1 stood above all");
+
+
+
+
+
+
+
             int numOfAttempts = 4;
             Console.WriteLine("A very old man will give you. " + numOfAttempts
                 + " attempts");
