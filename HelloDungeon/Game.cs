@@ -8,23 +8,6 @@ namespace HelloDungeon
     {
         public void Run()
         {
-            ////Health Exercise
-
-            //// Initailize default health values
-            //int healthRegen = 50;
-            //int health = 100;
-            ////Increase health by regen amount 
-            //health += healthRegen;
-            ////Display health to user
-            //Console.WriteLine(health);
-
-            ////Name Exercise
-            //string name = "Empty";
-            //Console.WriteLine("Please enter your name.");
-            //name = Console.ReadLine();
-            //Console.WriteLine("Hello " + name);
-
-
             Console.WriteLine("Welcome to Tower Ascent");
             Console.WriteLine("Press Enter");
             Console.ReadLine();
@@ -46,7 +29,7 @@ namespace HelloDungeon
             //Floor
             int currentfloor = 1;
             Console.WriteLine("Floor " + currentfloor);
-            //Test Commit
+            
         }
     }
 }
