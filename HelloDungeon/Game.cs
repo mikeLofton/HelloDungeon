@@ -6,6 +6,21 @@ namespace HelloDungeon
 {
     class Game
     {
+        string heroName = "";
+        int health = 100;
+        float strength = 10f;
+        float defense = 10f;
+        string input;
+        string weapon = "";
+        bool validInput = false;
+        void displayStats()
+        {
+            Console.WriteLine("Name " + heroName + "\n");
+            Console.WriteLine("Weapon " + weapon + "\n");
+            Console.WriteLine(heroName + "'s" + " Current Health " + health);
+            Console.WriteLine(heroName + "'s" + " Current Stength " + strength);
+            Console.WriteLine(heroName + "'s" + " Current Defense " + defense);
+        }
         public void Run()
         {    
                 //Title Screen
@@ -14,7 +29,7 @@ namespace HelloDungeon
                 Console.ReadKey();
 
                 //Character Name
-                string heroName = "";
+               
                 Console.WriteLine("What is thine name?");
                 Console.Write("> ");
                 heroName = Console.ReadLine();
@@ -23,12 +38,7 @@ namespace HelloDungeon
                 Console.ReadKey();
 
                 //Weapon Selection
-                int health = 100;
-                float strength = 10f;
-                float defense = 10f;
-                string input;
-                string weapon = "";
-                bool validInput = false;
+                
                 while (validInput == false)
                 {
                     Console.WriteLine("Choose thine weapon \n");
@@ -71,14 +81,10 @@ namespace HelloDungeon
                 }
                 Console.ReadKey();
 
-                //Stats Display 
-                Console.WriteLine("Name " + heroName + "\n");
-                Console.WriteLine("Weapon " + weapon + "\n");
-                Console.WriteLine(heroName + "'s" + " Current Health " + health);
-                Console.WriteLine(heroName + "'s" + " Current Stength " + strength);
-                Console.WriteLine(heroName + "'s" + " Current Defense " + defense);
-                Console.ReadKey();
-                Console.Clear();
+            //Stats Display 
+            displayStats();
+            Console.ReadKey();
+            Console.Clear();
 
             //First Event
             Console.WriteLine("Floor 1 Start \n");
@@ -93,7 +99,7 @@ namespace HelloDungeon
                 input = Console.ReadLine();
                 if (input == "1" || input == "Yes")
                 {
-                    Console.WriteLine("You feel cold. God has abandoned this place.");                
+                    Console.WriteLine("You feel cold. God has abandoned this place. \n");                
                     Console.ReadKey();
                     validInput = true;
                 }
@@ -108,47 +114,50 @@ namespace HelloDungeon
                     Console.WriteLine("Invalid Input");
                     Console.ReadKey();
                     Console.Clear();
-                }
-                Console.Clear();
-
+                }              
             }
 
             //Second Event
             Console.WriteLine("Upon entering the tower the door slams shut behind you. You are in a " +
                 "hallway with seven doors. Three to your left, three to your right, and one directly " +
                 "in front of you. The Devil's voice enters your mind. \n");
-            Console.WriteLine("The Devil: Choose the correct path or the fires of hell shall consume you!" +
-                "You have three attempts. \n");
-            Console.WriteLine("A message is engraved on your weapon... 7 dead," +
-                "6 fallen, 5 burning, 4 changed, 3 free, 2 hated, 1 stood above all");
-
-
-
-
-
-
-
-            int numOfAttempts = 4;
-            Console.WriteLine("A very old man will give you. " + numOfAttempts
-                + " attempts");
-
-            for (int i = 0; i < numOfAttempts; i++)
+          
+            int numofAttempts = 3;
+            for (int i= 0; i < numofAttempts; i++)
             {
-                Console.Clear();
-                Console.WriteLine("What has to be broken before you can use it?");
-                int attempsRemaining = numOfAttempts - i;
-                Console.WriteLine("Attemps Remaining: " + attempsRemaining);
-                Console.Write("> ");
-                input = Console.ReadLine();
-
-                if (input == "egg")
-                {
-                    Console.WriteLine("Congrats");
-                    break;
-                }
-
-                Console.WriteLine("Incorrect!");
+                Console.WriteLine("The Devil: Choose the correct path or the fires of hell shall consume you!" +
+              "You have " + numofAttempts + ". \n");
+                Console.WriteLine("A message is engraved on your weapon... 7 dead," +
+                    "6 fallen, 5 burning, 4 changed, 3 free, 2 hated, 1 stood above all. \n");
+                Console.WriteLine("Choose a door number");
             }
+
+
+
+
+
+
+            //int numOfAttempts = 4;
+            //Console.WriteLine("A very old man will give you. " + numOfAttempts
+            //    + " attempts");
+
+            //for (int i = 0; i < numOfAttempts; i++)
+            //{
+            //    Console.Clear();
+            //    Console.WriteLine("What has to be broken before you can use it?");
+            //    int attempsRemaining = numOfAttempts - i;
+            //    Console.WriteLine("Attemps Remaining: " + attempsRemaining);
+            //    Console.Write("> ");
+            //    input = Console.ReadLine();
+
+            //    if (input == "egg")
+            //    {
+            //        Console.WriteLine("Congrats");
+            //        break;
+            //    }
+
+            //    Console.WriteLine("Incorrect!");
+            //}
 
 
 
