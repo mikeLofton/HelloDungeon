@@ -12,6 +12,7 @@ namespace HelloDungeon
         float defense = 10f;       
         string weapon = "";       
         bool playerIsAlive = true;
+        int currentArea = 1;
 
         int GetInput(string description, string option1, string option2, string option3)
         {
@@ -156,12 +157,53 @@ namespace HelloDungeon
             }
         }
 
-        
+        void displayMenu()
+        {
+            int input = GetInput("Would you like to play again", "Yes", "No", "Maybe");
+            if (input == 1)
+            {
+                playerIsAlive = true;
+            }
+            if (input == 2)
+            {
+                playerIsAlive = false;
+            }
+        }
+        void DisplayCurrentRoom()
+        {
+            if (currentArea == 1)
+            {
+                Console.Clear();
+
+                //Title Screen
+                titleScreen();
+
+                //Character Name
+                characterName();
+
+                //Weapon Selection
+                weaponSelection();
+                Console.ReadKey();
+
+                //Stats Display 
+                displayStats();
+                Console.ReadKey();
+                Console.Clear();
+
+                //First Event
+                Console.WriteLine("Floor 1 Start \n");
+                Console.ReadKey();
+                firstEvent();
+
+            }
+        }
 
         public void Run()
         {
             while (playerIsAlive)
             {
+               //Place the whole game in DisplayCurrentRoom function
+               //Try working on this at home & fix errors.             
                 Console.Clear();
 
                 //Title Screen
@@ -187,11 +229,20 @@ namespace HelloDungeon
                 //Second Event               
                 secondEvent();
 
-                //Game End                
-                Console.Clear();
-                Console.WriteLine("You have reach the end of your path. Farewell. \n");
-                Console.ReadKey();
-                Console.WriteLine("Do you want to play again?");
+                //Game End
+                if (playerIsAlive == false || currentArea == 3)
+                {                    
+                    displayMenu();
+                    //Console.Clear();
+                    //Console.WriteLine("You have reach the end of your path. Farewell. \n");
+                    //Console.ReadKey();
+                    //Console.WriteLine("Do you want to play again?");
+                }
+                else
+                {
+                    currentArea++;
+                }
+               
 
             }
              
