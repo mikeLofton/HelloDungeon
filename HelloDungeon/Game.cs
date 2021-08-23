@@ -125,21 +125,19 @@ namespace HelloDungeon
             int input = GetInput("You stand at the entrance of Celestia Tower. Will you enter?",
                 "1. Yes", "2. No", "3. N/A");
 
-            while (input != 2 || input != 3)
+            if (input == 1)
             {
-                if (input == 1)
-                {
-                    Console.WriteLine("You feel cold. God has abandoned this place. \n");
-                }
-                else if (input == 2)
-                {
-                    Console.WriteLine("You have abandoned your journey. Run home cowardly traveler.");
-                }
-                else if (input == 3)
-                {
-                    Console.WriteLine("Nothing happens");
-                }
+                Console.WriteLine("You feel cold. God has abandoned this place. \n");
             }
+            else if (input == 2)
+            {
+                Console.WriteLine("You have abandoned your journey. Run home cowardly traveler.");
+            }
+            else if (input == 3)
+            {
+                Console.WriteLine("Nothing happens");
+            }
+
 
             //Second Event         
             int numofAttempts = 2;     
