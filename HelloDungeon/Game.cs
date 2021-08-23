@@ -10,8 +10,7 @@ namespace HelloDungeon
         int health = 100;
         float strength = 10f;
         float defense = 10f;       
-        string weapon = "";
-        bool validInput = false;
+        string weapon = "";       
         bool playerIsAlive = true;
 
         int GetInput(string description, string option1, string option2, string option3)
@@ -50,8 +49,22 @@ namespace HelloDungeon
                 Console.Clear();
             }
             return inputRecieved;
+        }     
+        void titleScreen()
+        {
+            Console.WriteLine("Welcome to Tower Ascent");
+            Console.WriteLine("Press Enter \n");
+            Console.ReadKey();
         }
-
+        void characterName()
+        {
+            Console.WriteLine("What is thine name?");
+            Console.Write("> ");
+            heroName = Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("Your destiny awaits " + heroName + "\n");
+            Console.ReadKey();
+        }
         /// <summary>
         /// Displays players name, weapon, and stats
         /// </summary>
@@ -92,39 +105,10 @@ namespace HelloDungeon
                 Console.WriteLine("You have chosen " + weapon + "\n");
             }          
         }
-
-        public void Run()
-        {                   
-                //Title Screen
-                Console.WriteLine("Welcome to Tower Ascent");
-                Console.WriteLine("Press Enter \n");
-                Console.ReadKey();
-
-                //Character Name
-
-                Console.WriteLine("What is thine name?");
-                Console.Write("> ");
-                heroName = Console.ReadLine();
-                Console.WriteLine("");
-                Console.WriteLine("Your destiny awaits " + heroName + "\n");
-                Console.ReadKey();
-
-                //Weapon Selection
-                weaponSelection();
-                Console.ReadKey();
-
-                //Stats Display 
-                displayStats();
-                Console.ReadKey();
-                Console.Clear();
-
-            //First Event
-            Console.WriteLine("Floor 1 Start \n");
-            Console.ReadKey();
-
+        void firstEvent()
+        {
             int input = GetInput("You stand at the entrance of Celestia Tower. Will you enter?",
-                "1. Yes", "2. No", "3. N/A");
-
+                   "1. Yes", "2. No", "3. Look Around");
             if (input == 1)
             {
                 Console.WriteLine("You feel cold. God has abandoned this place. \n");
@@ -135,12 +119,12 @@ namespace HelloDungeon
             }
             else if (input == 3)
             {
-                Console.WriteLine("Nothing happens");
+                Console.WriteLine("The Tower seems to go up endlessly. You swear you saw a gargoyle move");
             }
-
-
-            //Second Event         
-            int numofAttempts = 2;     
+        }
+        void secondEvent()
+        {
+            int numofAttempts = 2;
             Console.WriteLine("Upon entering the tower the door slams shut behind you. You are in a " +
                 "hallway with three doors. The Devil's voice enters your mind. \n");
             Console.WriteLine("The Devil: Choose the correct path or the fires of hell shall consume you!" +
@@ -148,7 +132,7 @@ namespace HelloDungeon
             Console.ReadKey();
             for (int i = 0; i < numofAttempts; i++)
             {
-                input = GetInput("A message is engraved on your weapon...3 souls free, 2 filled " +
+                int input = GetInput("A message is engraved on your weapon...3 souls free, 2 filled " +
                     "with hate, 1 consumed by power.\nChoose " +
                     "a door number", "1. Door 1", "2. Door 2", "3. Door 3");
                 int remainingAttempts = numofAttempts - i;
@@ -168,16 +152,51 @@ namespace HelloDungeon
                     Console.WriteLine("The Devil: You have chosen correctly foolish mortal.");
                     break;
                 }
-                
+
             }
+        }
 
-            ////Third Event
-            //Console.ReadKey();
-            //Console.Clear();
-            //Console.WriteLine("Floor 2 Start \n");
-            //Console.WriteLine("You have reached a fork in the road. Do you go left or right?");
+        
 
-            ////Fourth Event
+        public void Run()
+        {
+            while (playerIsAlive)
+            {
+                Console.Clear();
+
+                //Title Screen
+                titleScreen();
+
+                //Character Name
+                characterName();
+
+                //Weapon Selection
+                weaponSelection();
+                Console.ReadKey();
+
+                //Stats Display 
+                displayStats();
+                Console.ReadKey();
+                Console.Clear();
+
+                //First Event
+                Console.WriteLine("Floor 1 Start \n");
+                Console.ReadKey();
+                firstEvent();
+
+                //Second Event               
+                secondEvent();
+
+                //Game End                
+                Console.Clear();
+                Console.WriteLine("You have reach the end of your path. Farewell. \n");
+                Console.ReadKey();
+                Console.WriteLine("Do you want to play again?");
+
+            }
+             
+
+            
 
 
         }
