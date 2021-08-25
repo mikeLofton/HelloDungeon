@@ -12,6 +12,7 @@ namespace HelloDungeon
         float defense = 10f;       
         string weapon = "";       
         bool playerIsAlive = true;
+        bool gameOver = false;
         int currentArea = 1;
 
         int GetInput(string description, string option1, string option2, string option3)
@@ -162,11 +163,12 @@ namespace HelloDungeon
             int input = GetInput("Would you like to play again", "Yes", "No", "Maybe");
             if (input == 1)
             {
-                playerIsAlive = true;
+                currentArea = 1;
+                gameOver = false;
             }
             if (input == 2)
             {
-                playerIsAlive = false;
+                gameOver = true;
             }
         }
         void DisplayCurrentRoom()
@@ -196,38 +198,21 @@ namespace HelloDungeon
                 firstEvent();
 
             }
+            else if (currentArea == 2)
+            {
+                secondEvent();
+            }
         }
 
         public void Run()
         {
-            while (playerIsAlive)
+            while (!gameOver)
             {
                //Place the whole game in DisplayCurrentRoom function
                //Try working on this at home & fix errors.             
                 Console.Clear();
 
-                //Title Screen
-                titleScreen();
-
-                //Character Name
-                characterName();
-
-                //Weapon Selection
-                weaponSelection();
-                Console.ReadKey();
-
-                //Stats Display 
-                displayStats();
-                Console.ReadKey();
-                Console.Clear();
-
-                //First Event
-                Console.WriteLine("Floor 1 Start \n");
-                Console.ReadKey();
-                firstEvent();
-
-                //Second Event               
-                secondEvent();
+                DisplayCurrentRoom();
 
                 //Game End
                 if (playerIsAlive == false || currentArea == 3)
