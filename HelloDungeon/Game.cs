@@ -148,10 +148,13 @@ namespace HelloDungeon
             if (input == 1)
             {
                 Console.WriteLine("You feel cold. God has abandoned this place. \n");
+                Console.ReadKey();
             }
             else if (input == 2)
             {
                 Console.WriteLine("You have abandoned your journey. Run home cowardly traveler.");
+                Console.ReadKey();
+                playerIsAlive = false;
             }          
         }
         void secondEvent()
@@ -190,7 +193,7 @@ namespace HelloDungeon
 
         void displayMenu()
         {
-            int input = GetInput("Would you like to play again", "Yes", "No", "Maybe");
+            int input = GetTwoInputs("Would you like to play again", "Yes", "No");
             if (input == 1)
             {
                 currentArea = 1;
