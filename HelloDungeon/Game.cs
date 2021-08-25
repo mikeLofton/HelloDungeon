@@ -51,7 +51,41 @@ namespace HelloDungeon
                 Console.Clear();
             }
             return inputRecieved;
-        }     
+        }
+
+        int GetTwoInputs(string description, string option1, string option2)
+        {
+            string input = "";
+            int inputRecieved = 0;
+
+            while (!(inputRecieved == 1 || inputRecieved == 2))
+            {
+                Console.WriteLine(description);
+                Console.WriteLine("1. " + option1);
+                Console.WriteLine("2. " + option2);            
+                Console.Write("> ");
+
+                input = Console.ReadLine();
+
+                if (input == "1" || input == option1)
+                {
+                    inputRecieved = 1;
+                }
+                else if (input == "2" || input == option2)
+                {
+                    inputRecieved = 2;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input");
+                    Console.ReadLine();
+                }
+
+                Console.Clear();
+            }
+            return inputRecieved;
+        }
+
         void titleScreen()
         {
             Console.WriteLine("Welcome to Tower Ascent");
@@ -109,8 +143,8 @@ namespace HelloDungeon
         }
         void firstEvent()
         {
-            int input = GetInput("You stand at the entrance of Celestia Tower. Will you enter?",
-                   "1. Yes", "2. No", "3. Look Around");
+            int input = GetTwoInputs("You stand at the entrance of Celestia Tower. Will you enter?",
+                   "1. Yes", "2. No");
             if (input == 1)
             {
                 Console.WriteLine("You feel cold. God has abandoned this place. \n");
@@ -118,11 +152,7 @@ namespace HelloDungeon
             else if (input == 2)
             {
                 Console.WriteLine("You have abandoned your journey. Run home cowardly traveler.");
-            }
-            else if (input == 3)
-            {
-                Console.WriteLine("The Tower seems to go up endlessly. You swear you saw a gargoyle move");
-            }
+            }          
         }
         void secondEvent()
         {
