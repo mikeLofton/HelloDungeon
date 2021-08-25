@@ -14,7 +14,15 @@ namespace HelloDungeon
         bool playerIsAlive = true;
         bool gameOver = false;
         int currentArea = 1;
-
+        /// <summary>
+        /// Function that reads three inputs and will either return an inputrecieved integer or
+        /// label the as input invalid.
+        /// </summary>
+        /// <param name="description">The set up or scenerio</param>
+        /// <param name="option1">The first option for the player</param>
+        /// <param name="option2">The second option for the player</param>
+        /// <param name="option3">The third option for the player</param>
+        /// <returns></returns>
         int GetInput(string description, string option1, string option2, string option3)
         {
             string input = "";
@@ -189,6 +197,11 @@ namespace HelloDungeon
                 }
 
             }
+        }
+
+        void thirdEvent()
+        {
+
         }
 
         void displayMenu()
