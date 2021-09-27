@@ -199,11 +199,6 @@ namespace HelloDungeon
             }
         }
 
-        void thirdEvent()
-        {
-
-        }
-
         void displayMenu()
         {
             int input = GetTwoInputs("Would you like to play again", "Yes", "No");
